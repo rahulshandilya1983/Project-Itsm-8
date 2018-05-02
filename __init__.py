@@ -54,7 +54,7 @@ class ItsmUserSkill(MycroftSkill):
     def handle_itsm_user_intent(self, message):
         url = 'https://dev22921.service-now.com/api/now/table/sys_user/66e1f49edb5d13006b72712ebf9619c2?sysparm_display_value=true&sysparm_exclude_reference_link=true&sysparm_fields=name'
         user = '531834'
-        pwd = 'Anita!2345'
+        pwd = 'Welcome!2345'
         headers = {"Content-Type":"application/json","Accept":"application/json"}
         # Do the HTTP request
         response = requests.get(url, auth=(user, pwd), headers=headers )
@@ -64,8 +64,15 @@ class ItsmUserSkill(MycroftSkill):
             exit()
         # Decode the JSON response into a dictionary and use the data
         data = response.json()
-        name = data['result']['name']
-        self.speak("Your name in your ServiceNow Instance is {}".format(name))
+        #length = len(data['result'])
+        #x = 0
+        #r = data['result']
+        #detail = ""
+        #while x<length:
+        #    detail += "Your Incident {}".format(x+1) +" is "+ r[x]['number'] + " having caller as "+r[x]['caller_id']+ " with Short Description "+ r[x]['short_description'] + " and priority as "+r[x]['priority']+"."
+        #    x += 1
+        self.speak("Hello")
+        #self.speak(detail)
         
 
     def stop(self):
