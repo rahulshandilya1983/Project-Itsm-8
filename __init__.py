@@ -70,8 +70,9 @@ class ItsmUserSkill(MycroftSkill):
         detail = ""
         #for x in range(0, length):
             #detail += "Your Incident {}".format(x+1) +" is "+ r[x]['number'] + " having caller as "+r[x]['caller_id']+ " with Short Description "+ r[x]['short_description'] + " and priority as "+r[x]['priority']
-            self.speak('Your Incident {}'.format(x+1) +' is '+ r[x]['number'] + ' having caller as '+r[x]['caller_id']+ ' with Short Description '+ r[x]['short_description'] + ' and priority as '+r[x]['priority'])
-            x += 1
+            self.speak("Your Incident {}".format(x+1) +" is {}".format(r[x]['number']))
+            # + ' having caller as '+r[x]['caller_id']+ ' with Short Description '+ r[x]['short_description'] + ' and priority as '+r[x]['priority'])
+            #x += 1
         
         #self.speak("Hello")
         
