@@ -71,7 +71,7 @@ class ItsmUserSkill(MycroftSkill):
         while x<length:
             detail += "Your Incident {}".format(x+1) +" is "+ r[x]['number'] + " having caller as "+r[x]['caller_id']+ " with Short Description "+ r[x]['short_description'] + " and priority as "+r[x]['priority']
             x += 1
-        #self.speak("Hello")
+        print(detail)
         self.speak("{}".format(detail))
         
 
