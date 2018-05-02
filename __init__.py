@@ -64,15 +64,15 @@ class ItsmUserSkill(MycroftSkill):
             exit()
         # Decode the JSON response into a dictionary and use the data
         data = response.json()
-        #length = len(data['result'])
-        #x = 0
-        #r = data['result']
-        #detail = ""
-        #while x<length:
-        #    detail += "Your Incident {}".format(x+1) +" is "+ r[x]['number'] + " having caller as "+r[x]['caller_id']+ " with Short Description "+ r[x]['short_description'] + " and priority as "+r[x]['priority']+"."
-        #    x += 1
-        self.speak("Hello")
-        #self.speak(detail)
+        length = len(data['result'])
+        x = 0
+        r = data['result']
+        detail = ""
+        while x<length:
+            detail += "Your Incident {}".format(x+1) +" is "+ r[x]['number'] + " having caller as "+r[x]['caller_id']+ " with Short Description "+ r[x]['short_description'] + " and priority as "+r[x]['priority']+"."
+            x += 1
+        #self.speak("Hello")
+        self.speak(detail)
         
 
     def stop(self):
