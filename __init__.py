@@ -73,6 +73,7 @@ class ItsmUserSkill(MycroftSkill):
         detail = "Your incident {} is {} having caller as {} with Short Description {} and priority as {}".format(x+1,  r[x]['number'], r[x]['caller_id'],r[x]['short_description'], r[x]['priority'])
         self.speak(detail)
         self.log.debug("Detail: "+str(detail))
+        self.log("Detail: "+str(detail))
             # + ' having caller as '+r[x]['caller_id']+ ' with Short Description '+ r[x]['short_description'] + ' and priority as '+r[x]['priority'])
             #x += 1
         
