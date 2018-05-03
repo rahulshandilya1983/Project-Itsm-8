@@ -1,7 +1,7 @@
 {
-  "utterance": "Give me details about the Incidents assigned to me",
+  "utterance": "give me incident details",
   "intent_type": "itsm_user_intent",
   "intent": {
-    "ItsmUserKeyword": "Give me details about the Incidents assigned to me"
+    "ItsmUserKeyword": "give me incident details"
   }
 }
