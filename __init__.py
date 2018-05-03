@@ -65,14 +65,15 @@ class ItsmUserSkill(MycroftSkill):
         # Decode the JSON response into a dictionary and use the data
         data = response.json()
         length = len(data['result'])
-        #x = 0
-        #r = data['result']
+        x = 0
+        r = data['result']
         #number = r['result']['number']
         #detail = ""
         #for x in range(0, length):
             #detail += "Your Incident {}".format(x+1) +" is "+ r[x]['number'] + " having caller as "+r[x]['caller_id']+ " with Short Description "+ r[x]['short_description'] + " and priority as "+r[x]['priority']
         #detail = "Your incident {} is {} having caller as {} with Short Description {} and priority as {}".format(x+1,  r[x]['number'], r[x]['caller_id'],r[x]['short_description'], r[x]['priority'])
         self.speak("This is unusal {}".format(length+1))
+        self.speak("Your Incident {}".format(r[x]['number']))
         #self.log.debug_print(number)
         #self.log.debug("Detail: "+str(detail))
         #self.log.info('Details'+str(detail))
