@@ -56,7 +56,8 @@ class ItsmUserSkill(MycroftSkill):
             exit()
         # Decode the JSON response into a dictionary and use the data
         data = response.json()
-        self.speak("Mycroft created an Incident {} for you in ServiceNow".format(data['result']['number']))
+        self.speak("Hello")
+        #self.speak("Mycroft created an Incident {} for you in ServiceNow".format(data['result']['number']))
         
         
 

@@ -1,7 +1,7 @@
 {
-  "utterance": "create an incident for password reset",
+  "utterance": "create incident for password reset",
   "intent_type": "itsm_user_intent",
   "intent": {
-    "ItsmUserKeyword": "create an incident for password reset"
+    "ItsmUserKeyword": "create incident for password reset"
   }
 }
