@@ -58,7 +58,7 @@ class ItsmUserSkill(MycroftSkill):
         data = response.json()
         self.speak("Hello")
         self.speak("Mycroft created an Incident {} for you in ServiceNow".format(data['result']['number']))
-        
+
         
 
     def stop(self):
