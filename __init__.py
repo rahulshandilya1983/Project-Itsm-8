@@ -41,47 +41,23 @@ class ItsmUserSkill(MycroftSkill):
             require("ItsmUserKeyword").build()
         self.register_intent(itsm_user_intent, self.handle_itsm_user_intent)
 
-        #how_are_you_intent = IntentBuilder("HowAreYouIntent"). \
-        #    require("HowAreYouKeyword").build()
-        #self.register_intent(how_are_you_intent,
-        #                     self.handle_how_are_you_intent)
-
-        #hello_world_intent = IntentBuilder("HelloWorldIntent"). \
-        #    require("HelloWorldKeyword").build()
-        #self.register_intent(hello_world_intent,
-        #                     self.handle_hello_world_intent)
+ 
 
     def handle_itsm_user_intent(self, message):
-        url = 'https://dev22921.service-now.com/api/now/table/incident?sysparm_query=assigned_to%3D66e1f49edb5d13006b72712ebf9619c2&sysparm_display_value=true&sysparm_exclude_reference_link=true&sysparm_fields=number%2Ccaller_id%2Cshort_description%2Cpriority'
+        url = 'https://dev22921.service-now.com/api/now/table/incident'
         user = '531834'
         pwd = 'Welcome!2345'
         headers = {"Content-Type":"application/json","Accept":"application/json"}
         # Do the HTTP request
-        response = requests.get(url, auth=(user, pwd), headers=headers )
+        response = requests.post(url, auth=(user, pwd), headers=headers ,data="{\"caller_id\":\"66e1f49edb5d13006b72712ebf9619c2\",\"impact\":\"2\",\"urgency\":\"2\",\"short_description\":\"Password Reset\",\"category\":\"password reset\",\"subcategory\":\"reset\",\"assignment_group\":\"d625dccec0a8016700a222a0f7900d06\",\"contact_type\":\"mycroft\"}")
         # Check for HTTP codes other than 200
-        if response.status_code != 200: 
+        if response.status_code != 201: 
             print('Status:', response.status_code, 'Headers:', response.headers, 'Error Response:',response.json())
             exit()
         # Decode the JSON response into a dictionary and use the data
         data = response.json()
-        length = len(data['result'])
-        x = 0
-        r = data['result']
-        #number = r['result']['number']
-        detail = ""
-        for x in range(0, length):
-            detail += "Your incident {} is {} having caller as {} with ShortDescription {} and priority as {}  ".format(x+1,  r[x]['number'], r[x]['caller_id'],r[x]['short_description'], r[x]['priority'])
-            x += 1
-            #detail += "Your Incident {}".format(x+1) +" is "+ r[x]['number'] + " having caller as "+r[x]['caller_id']+ " with Short Description "+ r[x]['short_description'] + " and priority as "+r[x]['priority']
-        #detail = "Your incident {} is {} having caller as {} with Short Description {} and priority as {}".format(x+1,  r[x]['number'], r[x]['caller_id'],r[x]['short_description'], r[x]['priority'])
-        self.speak(detail)
-        #self.log.debug_print(number)
-        #self.log.debug("Detail: "+str(detail))
-        #self.log.info('Details'+str(detail))
-            # + ' having caller as '+r[x]['caller_id']+ ' with Short Description '+ r[x]['short_description'] + ' and priority as '+r[x]['priority'])
-            #x += 1
+        self.speak("Mycroft created an Incident {} for you in ServiceNow".format(data['result']['number']))
         
-        #self.speak("Hello")
         
 
     def stop(self):
